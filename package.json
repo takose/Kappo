@@ -12,12 +12,14 @@
     "start": "next start"
   },
   "devDependencies": {
+    "@types/styled-components": "^4.1.19",
     "prettier": "^1.18.2"
   },
   "dependencies": {
     "@zeit/next-typescript": "^1.1.1",
     "next": "^8.1.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.4.0"
   }
 }
