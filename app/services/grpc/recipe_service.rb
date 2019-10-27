@@ -1,8 +1,8 @@
-class Grpc::RecipeService < Bank::RecipeService::Service
+class Grpc::RecipeService < Coot::RecipeService::Service
   def get_by_id(req, _call)
     recipe = Recipe.find(req.id)
     if recipe.present?
-      Coot::GetByUserIdResponse.new(recipe: recipe.to_proto)
+      Coot::GetByIdResponse.new(recipe: recipe.to_proto)
     else
       raise GRPC::BadStatus.new_status_exception(
         GRPC::Core::StatusCodes::ABORTED,
