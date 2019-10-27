@@ -1,3 +1,28 @@
+syntax = "proto3";
+
+package recipe;
+
+service RecipeService {
+  rpc GetById (GetByIdRequest) returns (GetByIdResponse);
+  rpc CreateRecipe (CreateRecipeRequest) returns (CreateRecipeResponse);
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  Recipe recipe = 1;
+}
+
+message CreateRecipeRequest {
+  string title = 1;
+}
+
+message CreateRecipeResponse {
+  Recipe recipe = 1;
+}
+
 message Recipe {
   int32 id = 1;
   string title = 2;
