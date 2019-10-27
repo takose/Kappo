@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package recipe;
+package coot;
 
 service RecipeService {
   rpc GetById (GetByIdRequest) returns (GetByIdResponse);
