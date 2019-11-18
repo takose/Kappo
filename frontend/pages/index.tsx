@@ -11,6 +11,10 @@ import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import gql from 'graphql-tag';
+import fetch from 'node-fetch';
+import { createHttpLink } from 'apollo-link-http';
+
+const link = createHttpLink({ uri: 'http://localhost:4000/', fetch: fetch });
 
 const gqlClient = new ApolloClient({
   link: ApolloLink.from([
@@ -23,10 +27,7 @@ const gqlClient = new ApolloClient({
         );
       if (networkError) console.log(`[Network error]: ${networkError}`);
     }),
-    new HttpLink({
-      uri: 'http://localhost:4000/',
-      credentials: 'same-origin'
-    })
+    link,
   ]),
   cache: new InMemoryCache()
 });
