@@ -42,18 +42,18 @@ const Index = () => {
       }
     `
   }).then(result => console.log(result['data']));
-  const client = new recipe_grpc_pb.RecipeServiceClient(
-    'localhost:8080',
-    grpc.credentials.createInsecure(),
-  );
+  // const client = new recipe_grpc_pb.RecipeServiceClient(
+  //   'localhost:8080',
+  //   grpc.credentials.createInsecure(),
+  // );
 
-  const req = new recipe_pb.GetByIdRequest();
-  req.setId(1)
+  // const req = new recipe_pb.GetByIdRequest();
+  // req.setId(1)
 
-  client.getById(req, function (error, result) {
-    if (error) console.log('Error: ', error);
-    else console.log(result.toObject());
-  });
+  // client.getById(req, function (error, result) {
+  //   if (error) console.log('Error: ', error);
+  //   else console.log(result.toObject());
+  // });
   return (
     <div>
       <Header />
