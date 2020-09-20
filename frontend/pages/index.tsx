@@ -1,13 +1,8 @@
 import Link from 'next/link';
 import Header from '../components/Header';
 
-import * as grpc from 'grpc';
-import * as recipe_grpc_pb from '../generated/recipe_grpc_pb';
-import * as recipe_pb from '../generated/recipe_pb';
-
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import gql from 'graphql-tag';
@@ -36,25 +31,15 @@ const Index = () => {
   gqlClient.query({
     query: gql`
       {
-        books {
+        recipes {
           title
           author
+          error
         }
       }
     `
   }).then(result => console.log(result['data']));
-  // const client = new recipe_grpc_pb.RecipeServiceClient(
-  //   'localhost:8080',
-  //   grpc.credentials.createInsecure(),
-  // );
 
-  // const req = new recipe_pb.GetByIdRequest();
-  // req.setId(1)
-
-  // client.getById(req, function (error, result) {
-  //   if (error) console.log('Error: ', error);
-  //   else console.log(result.toObject());
-  // });
   return (
     <div>
       <Header />
